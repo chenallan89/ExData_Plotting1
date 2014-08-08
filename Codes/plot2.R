@@ -7,10 +7,12 @@ ds <- rbind(ds1, ds2)
 # Concatenating date and time 
 ds$Date <- strptime(paste(ds$Date, ds$Time), "%d/%m/%Y %H:%M:%S")
 
+# Launching a graphics device
+png(file = "plot2.png")
+
 # Constructing a line graph
 plot(ds$Date, ds$Global_active_power, type = 'n', ylab = "Global Active Power (Kilowatts)", xlab = "")
 lines(ds$Date, ds$Global_active_power)
 
 # saving as a PNG file 
-dev.copy(png, file = "plot2.png")
 dev.off()
